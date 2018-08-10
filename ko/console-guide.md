@@ -1,1 +1,1 @@
-## Database > MS-SQL > 콘솔 사용 가이드
+## Database > MS-SQL Instance > 콘솔 사용 가이드

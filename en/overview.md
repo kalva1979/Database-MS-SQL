@@ -1,1 +1,1 @@
-## Database > MS-SQL > Overview
+## Database > MS-SQL Instance > Overview

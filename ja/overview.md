@@ -1,1 +1,1 @@
-## Database > MS-SQL > 概要
+## Database > MS-SQL Instance > 概要
