@@ -1,1 +1,1 @@
-## Database > MS-SQL > Console Guide
+## Database > MS-SQL > 控制台使用指南
