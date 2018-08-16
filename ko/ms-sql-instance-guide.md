@@ -6,7 +6,7 @@
 MS-SQL의 DB 계정을 사용하기 위해 SQL 인증 모드로 변경이 필요합니다. 
 
 서버 속성의 보안에서 서버 인증을 "SQL Server 및 Windows 인증 모드"으로 변경합니다.
-!http://static.toastoven.net/prod_ms_sql/2275955677822839836.png
+![http://static.toastoven.net/prod_ms_sql/2275955677822839836.png]
 ※ SQL 인증모드 설정후 적용을 위해 MS-SQL 서비스를 재시작해야 됩니다. 
 
 ### 2. MS-SQL 서비스 포트 변경 
