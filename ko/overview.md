@@ -10,4 +10,4 @@ MS-SQL 버전, CPU, 메모리, 디스크를 선택하여 원하는 스팩의 MS-
 - Analysis Services	
 - Reporting Services
 - Integration Services	
-
+※ Express 버전의 경우 Agent를 제공하지 않습니다.
