@@ -11,7 +11,8 @@ MS-SQL의 DB 계정을 사용하기 위해 SQL 인증 모드로 변경이 필요
 
 ### 2. MS-SQL 서비스 포트 변경 
 MS-SQL의 기본 서비스 포트 1433은 널리 알려진 포트로 보안 취약점이 될 수 있습니다.
-다른 포트로 변경하는것을 추천합니다. 
+다른 포트로 변경하는것을 추천합니다.
+※ Express 의 경우 기본포트 지정이 안되어 있습니다. 
 
 SQL Server 구성관리자의 SQL Server 구성관리자(로컬) > SQL Server 네트워크 구성 > MSSQLSERVER에 대한 프로토콜 > TCP/IP 의 속성에서 MS-SQL 서비스 포트를 변경합니다.
 ![서비스 포트 변경01](http://static.toastoven.net/prod_ms_sql/2275961179348076215.png)
