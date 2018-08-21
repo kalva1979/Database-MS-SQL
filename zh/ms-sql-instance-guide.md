@@ -1,5 +1,7 @@
 ## Database > MS-SQL Instance > Instance指南
 
+## Database > MS-SQL Instance > 사용 가이드
+
 ## MS-SQL 이미지 생성 후 초기 설정
 ### 1. SQL 인증모드 설정 
 기본 인증 모드가 "Windows 인증 모드"로 되어 있습니다. 
@@ -21,6 +23,12 @@ TCP/IP 속성 > IPALL > TCP Port에 설정된 1433를 변경하고자하는 포�
 ![서비스 포트 변경02](http://static.toastoven.net/prod_ms_sql/2275962828638922719.png)
 
 ※ MS-SQL 서비스 포트 변경후 적용을 위해 MS-SQL 서비스를 재시작해야 됩니다. 
+
+### 3. 외부에서 MS-SQL Database 접속허용 설정
+외부에서 MS-SQL Database에 접속하기 위해서 Network > VPC 의 Security Group에 MS-SQL 서비스 포트를 Security Rule 로 추가해야 합니다. 
+Security Rule 추가시 접속을 허용할 MS-SQL 서비스 포트 (기본포트 : 1433),  원격 IP를 등록합니다. 
+![접속허용 01](http://static.toastoven.net/prod_ms_sql/2276042525424064890.png)
+
 
 ## 데이터 볼륨 할당
 MS-SQL의 데이터/로그 파일(MDF/LDF), 백업 파일은 별도의 Block Storage 사용을 권장합니다. 
