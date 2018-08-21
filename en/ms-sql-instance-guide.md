@@ -1,7 +1,5 @@
 ## Database > MS-SQL Instance > Instance Guide
 
-## Database > MS-SQL Instance > 사용 가이드
-
 ## MS-SQL 이미지 생성 후 초기 설정
 ### 1. SQL 인증모드 설정 
 기본 인증 모드가 "Windows 인증 모드"로 되어 있습니다. 
