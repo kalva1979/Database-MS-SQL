@@ -1,4 +1,4 @@
-## Database > MS-SQL Instance > 사용 가이드
+## Database > MS-SQL Instance > Instance Guide
 
 ## MS-SQL 이미지 생성 후 초기 설정
 ### 1. SQL 인증모드 설정 
