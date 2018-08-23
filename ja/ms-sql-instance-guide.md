@@ -58,3 +58,7 @@ SQL Server (MSSQLSERVER), SQL Server 에이전트 (MSSQLSERVER) 등의 서비스
 
 속성창의 서비스탭에서 시작 모드를 자동으로 변경합니다. 
 ![서비스 자동 실행03](http://static.toastoven.net/prod_ms_sql/2275968334918331199.png)
+
+[참고]
+인스턴스 생성을 위한 자세한 가이드는 [인스턴스 콘솔 사용 가이드](/Compute/Instance/ko/console-guide/)를 참고하시기 바랍니다.
+MS-SQL Instance (or MySQL Instance)의 릴리스 현황은 [인스턴스 릴리스 노트](/Compute/ko/release-notes/) 를 참고하시기 바랍니다.
