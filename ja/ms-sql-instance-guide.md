@@ -3,19 +3,19 @@
 ## MS-SQL Intance 생성
 
 MS-SQL를 사용하기 위해서 먼저 인스턴스를 생성해야합니다.
-
-![mssqlinstance_01_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_01_201812.png)
-
 MS-SQL Instance 생성하기 **바로가기** 버튼을 클릭하면 **Compute > Instance > 인스턴스 생성**로 넘어갑니다.
+
+![mssqlinstance_01_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_01_201812_en.png)
+
 MS-SQL 이미지 선택 후 추가 설정 완료 후 인스턴스를 생성합니다.
 인스턴스 생성에 대한 자세한 내용은 [Instance 개요](https://docs.toast.com/ko/Compute/Instance/ko/overview/)를 참고하시기 바랍니다. 
 
 인스턴스 생성 완료 후 RDP(Remote Desktop Protocol)을 활용하여 인스턴스에 접근합니다.
 인스턴스에 Floating IP가 연결되어 있어야 하며 보안그룹에서 TCP 포트 3389(RDP)가 허용되어야 합니다.
-
-![mssqlinstance_02_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_02_201812.png)
-
 **+ 비밀번호 확인** 버튼을 클릭하여 인스턴스 생성 시 설정한 키페어를 사용해 비밀번호를 확인합니다.
+
+![mssqlinstance_02_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_02_201812_en.png)
+
 **연결** 버튼을 클릭하여 .rdp 파일을 다운받은 후 획득한 비밀번호를 사용하여 인스턴스에 접속합니다.
 
 ## MS-SQL 이미지 생성 후 초기 설정
@@ -23,11 +23,11 @@ MS-SQL 이미지 선택 후 추가 설정 완료 후 인스턴스를 생성합�
 ### 1. SQL 인증모드 설정
 
 서버의 기본 인증 모드가 "Windows 인증 모드"로 되어 있습니다. 
-MS-SQL의 DB 계정을 사용하기 위해 SQL 인증 모드로 변경이 필요합니다. 
+MS-SQL의 데이터베이스 계정을 사용하기 위해 SQL 인증 모드로 변경이 필요합니다. 
 
 Microsoft SQL Server Management Studio를 실행하여 인스턴스 이름으로 개체에 연결합니다.
 
-![mssqlinstance_03_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_03_201812.png)
+![mssqlinstance_03_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_03_201812_en.png)
 
 1. 개체를 우클릭합니다.
 2. 메뉴에서 **속성**을 선택합니다.
@@ -44,7 +44,7 @@ MS-SQL의 기본 서비스 포트 1433은 널리 알려진 포트로 보안 취�
 
 SQL Server 구성관리자를 실행합니다.
 
-![mssqlinstance_04_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_04_201812.png)
+![mssqlinstance_04_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_04_201812_en.png)
 
 1. 좌측 패널에서 **SQL Server 네트워크 구성**의 하위 항목 **MSSQLSERVER에 대한 프로토콜**을 선택합니다.
 2. 프로토콜 이름 중 **TCP/IP**를 우 클릭합니다.
@@ -54,18 +54,18 @@ SQL Server 구성관리자를 실행합니다.
 
 ※ MS-SQL 서비스 포트 변경후 적용을 위해 MS-SQL 서비스를 재시작해야 됩니다. 
 
-### 3. 외부에서 MS-SQL Database 접속허용 설정
+### 3. 외부에서 MS-SQL 데이터베이스 접속허용 설정
 
-외부에서 MS-SQL Database에 접속하기 위해서 **Network > VPC** 의 **Security Group**탭에서 MS-SQL 서비스 포트를 Security Rule로 추가해야 합니다. 
-Security Rule 추가시 접속을 허용할 MS-SQL 서비스 포트 (기본포트 : 1433) 및 원격 IP를 등록합니다. 
+외부에서 MS-SQL 데이터베이스에 접속하기 위해서 **Network > Security Group** 에서 MS-SQL 서비스 포트를 Security Group에 추가해야 합니다. 
+Security Group 추가시 접속을 허용할 MS-SQL 서비스 포트 (기본포트 : 1433) 및 원격 IP를 등록합니다. 
 
 ## 데이터 볼륨 할당
 
-MS-SQL의 데이터/로그 파일(MDF/LDF), 백업 파일은 별도의 Block Storage 사용을 권장합니다. 
+MS-SQL의 데이터/로그 파일(MDF/LDF), 백업 파일은 별도의 Block Storage 사용을 권장합니다.
+Block Storage를 생성하려면 **Compute > Instance > Block Storage** 탭에서 + Block Storage 생성 버튼을 클릭합니다.
 
 ![mssqlinstance_05_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_05_201812_en.png)
 
-**Compute > Instance > Block Storage** 탭으로 이동하여 Block Storage를 생성합니다.
 Block Storage 생성시 Volume 타입은 성능을 위해 "범용 SSD"를 추천합니다.
 
 ![mssqlinstance_06_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_06_201812_en.png)
