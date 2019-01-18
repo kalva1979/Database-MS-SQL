@@ -5,7 +5,7 @@
 MS-SQLを使用するには、先にインスタンスを作成する必要があります。
 MS-SQL Instance作成 **ショートカット** ボタンをクリックすると **Compute > Instance > インスタンス作成** に移動します。
 
-![mssqlinstance_01_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_01_201812.png)
+![mssqlinstance_01_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_01_201812_en.png)
 
 MS-SQLイメージ選択後、追加設定完了後にインスタンスを作成します。
 インスタンス作成の詳細内容は、[Instance概要](https://docs.toast.com/ko/Compute/Instance/ko/overview/)を参照してください。
@@ -14,7 +14,7 @@ MS-SQLイメージ選択後、追加設定完了後にインスタンスを作�
 インスタンスにFloating IPが接続されている必要があり、セキュリティーグループでTCPポート3389(RDP)が許可されている必要があります。
 **+ パスワード確認** ボタンをクリックし、インスタンス作成時に設定したキーペアを使用してパスワードを確認します。
 
-![mssqlinstance_02_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_02_201812.png)
+![mssqlinstance_02_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_02_201812_en.png)
 
 **接続** ボタンをクリックし、.rdpファイルをダウンロードした後に、獲得したパスワードを使用してインスタンスに接続します。
 
@@ -27,7 +27,7 @@ MS-SQLのデータベースアカウントを使用するためにSQL認証モ�
 
 Microsoft SQL Server Management Studioを実行して、インスタンス名でオブジェクトに接続します。
 
-![mssqlinstance_03_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_03_201812.png)
+![mssqlinstance_03_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_03_201812_en.png)
 
 1. オブジェクトを右クリックします。
 2. メニューで **プロパティ**を選択します。
@@ -44,7 +44,7 @@ MS-SQLのデフォルトのサービスポート1433は、広く認知されて�
 
 SQL Server構成管理者を実行します。
 
-![mssqlinstance_04_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_04_201812.png)
+![mssqlinstance_04_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_04_201812_en.png)
 
 1. 左のチェンネルで **SQL Serverネットワーク構成**の下位項目 **MSSQLSERVERに対するプロトコル**を選択します。
 2. プロトコル名の中から **TCP/IP**を右クリックします。
@@ -64,11 +64,11 @@ Security Groupに追加する時、接続を許可するMS-SQLサービスポー
 MS-SQLのデータ/ログファイル(MDF/LDF)、バックアップファイルは別途のBlock Storageの使用を推奨します。
 Block Storageを作成するには、**Compute > Instance > Block Storage** タブで + Block Storage作成ボタンをクリックします。
 
-![mssqlinstance_05_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_05_201812.png)
+![mssqlinstance_05_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_05_201812_en.png)
 
 Block Storage作成時、Volumeタイプは性能を考慮して「汎用SSD」の使用を推奨します。
 
-![mssqlinstance_06_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_06_201812.png)
+![mssqlinstance_06_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_06_201812_en.png)
 
 Block Storage作成完了後、Storageを選択し、 **接続管理** ボタンをクリックしてインスタンスに接続します。
 
@@ -76,7 +76,7 @@ Block Storage作成完了後、Storageを選択し、 **接続管理** ボタン
 
 RDPでインスタンスに接続し、 **コンピュータ管理**を実行して **保存場所 > ディスクの管理**に移動します。
 
-![mssqlinstance_07_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_07_201812.png)
+![mssqlinstance_07_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_07_201812_en.png)
 
 接続されたBlock Storageが探知されたことを確認できます。使用するには先にディスク初期化を実行する必要があります。
 1. **ディスク1** ブロックを右クリックした後、**ディスク初期化**をクリックします。
@@ -86,7 +86,7 @@ RDPでインスタンスに接続し、 **コンピュータ管理**を実行し
 
 初期化完了後、ディスクボリュームを作成します。
 
-![mssqlinstance_08_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_08_201812.png)
+![mssqlinstance_08_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_08_201812_en.png)
 
 割り当てられていないディスクを右クリックし、 **新しいシンプルボリューム**をクリックして新しいシンプルボリュームウィザードを進行します。
 
@@ -94,7 +94,7 @@ RDPでインスタンスに接続し、 **コンピュータ管理**を実行し
 
 Microsoft SQL Server Management Studioサーバープロパティのデータベース設定で、データベース基本位置を作成したボリュームのディレクトリに変更します。
 
-![mssqlinstance_09_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_09_201812.png)
+![mssqlinstance_09_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_09_201812_en.png)
 
 ※ MS-SQLデータベース基本位置の変更後、適用のためにMS-SQLサービスを再起動する必要があります。
 
@@ -104,14 +104,14 @@ MS-SQLの設定変更時、MS-SQLサービスの再起動が必要な場合が�
 
 SQL Server構成管理者の **SQL Server構成管理者(ローカル) > SQL Serverサービス > SQL Server(MSSQLSERVER)** を選択後、右クリックして表示されるメニューにある「再起動」からMS-SQLサービスを再起動します。
 
-![mssqlinstance_10_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_10_201812.png)
+![mssqlinstance_10_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_10_201812_en.png)
 
 ## MS-SQLサービス自動実行確認/設定
 MS-SQLのサービスが、OS起動時に自動で起動するように設定されているかを確認します。 
 
 SQL Server構成管理者のSQL Server構成管理者(ローカル) > SQL Serverサービスで「起動モード」を確認できます。 
 
-![mssqlinstance_11_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_11_201812.png)
+![mssqlinstance_11_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_11_201812_en.png)
 
 **SQL SERVER (MSSSQLSERVER)** および **SQL Serverエージェント(MSSQLSERVER)** などのサービス起動モードが **自動**ではない場合：
 1. サービスを右クリックした後、 **プロパティ**を選択します。
