@@ -4,7 +4,7 @@
 
 To use Microsoft SQL, it is required to create an instance first. 
 
-![mssqlinstance_01_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_01_201812.png)
+![mssqlinstance_01_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_01_201812_en.png)
 
 Click **Shortcuts** next to **Create Microsoft SQL Instances** to go to **Compute > Instance > Create Instances**.
 Select Microsoft SQL image, complete additional settings, and create an instance.
