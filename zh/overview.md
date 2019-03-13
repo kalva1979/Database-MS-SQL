@@ -1,11 +1,11 @@
-## Database > MS-SQL Instance > 概述
-MS-SQL가 설치된 가상서버를 제공하는 서비스입니다. 
-MS-SQL 버전, CPU, 메모리, 디스크를 선택하여 원하는 스팩의 MS-SQL을 사용할 수 있습니다.
+## Database > MS-SQL Instance > 概要
+是提供已安装MS-SQL的虚拟服务器的服务。 
+选择MS-SQL版本、CPU、内存、磁盘，可以使用所需规格的MS-SQL。
 
-## 기능
-- 데이터베이스 엔진 서비스
-  - SQL Server 복제
-  - 검색을 위한 전체 텍스트 및 의미 체계 추출 (Full-text Search)
+## 功能
+- 数据库引擎服务
+  - 复制SQL Server
+  - 提取搜索所需的全文和语义（Full-text Search）
   - Data Quality Services
 - Analysis Services	
 - Reporting Services
