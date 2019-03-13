@@ -1,121 +1,121 @@
-## Database > MS-SQL Instance > 사용 가이드
+## Database > MS-SQL Instance > 使用指南
 
-## MS-SQL Intance 생성
+## 创建MS-SQL Intance
 
-MS-SQL를 사용하기 위해서 먼저 인스턴스를 생성해야합니다.
+为使用MS-SQL，应先创建实例。
+单击创建MS-SQL Instance**跳转**按钮，跳转至**Compute > Instance > 创建实例**。
 
-![mssqlinstance_01_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_01_201812_en.png)
+![mssqlinstance_01_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_01_201812.png)
 
-MS-SQL Instance 생성하기 **바로가기** 버튼을 클릭하면 **Compute > Instance > 인스턴스 생성**로 넘어갑니다.
-MS-SQL 이미지 선택 후 추가 설정 완료 후 인스턴스를 생성합니다.
-인스턴스 생성에 대한 자세한 내용은 [Instance 개요](https://docs.toast.com/ko/Compute/Instance/ko/overview/)를 참고하시기 바랍니다. 
+选择MS-SQL镜像并完成添加设置后，创建实例。
+与创建实例相关的详细内容请参考【Instance概要】（https://docs.toast.com/ko/Compute/Instance/ko/overview/）。 
 
-인스턴스 생성 완료 후 RDP(Remote Desktop Protocol)을 활용하여 인스턴스에 접근합니다.
-인스턴스에 Floating IP가 연결되어 있어야 하며 보안그룹에서 TCP 포트 3389(RDP)가 허용되어야 합니다.
+创建实例完成后，利用RDP（Remote Desktop Protocol）访问实例。
+Floating IP应连接至实例，安全组中应允许使用TCP端口3389（RDP）。
+单击**+确认密码**按钮创建实例时，使用设置的密钥对确认密码。
 
-![mssqlinstance_02_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_02_201812_en.png)
+![mssqlinstance_02_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_02_201812.png)
 
-**+ 비밀번호 확인** 버튼을 클릭하여 인스턴스 생성 시 설정한 키페어를 사용해 비밀번호를 확인합니다.
-**연결** 버튼을 클릭하여 .rdp 파일을 다운받은 후 획득한 비밀번호를 사용하여 인스턴스에 접속합니다.
+单击**连接**按钮，下载.rdp文件后，利用获得的密码连接到实例。
 
-## MS-SQL 이미지 생성 후 초기 설정
+## 创建MS-SQL镜像后进行初始设置
 
-### 1. SQL 인증모드 설정
+### 1.设置SQL验证模式
 
-서버의 기본 인증 모드가 "Windows 인증 모드"로 되어 있습니다. 
-MS-SQL의 DB 계정을 사용하기 위해 SQL 인증 모드로 변경이 필요합니다. 
+服务器的默认验证模式为“Windows验证模式”。 
+为使用MS-SQL的数据库账户，需要更改为SQL验证模式。 
 
-Microsoft SQL Server Management Studio를 실행하여 인스턴스 이름으로 개체에 연결합니다.
+执行Microsoft SQL Server Management Studio，通过实例名连接到对象。
 
-![mssqlinstance_03_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_03_201812_en.png)
+![mssqlinstance_03_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_03_201812.png)
 
-1. 개체를 우클릭합니다.
-2. 메뉴에서 **속성**을 선택합니다.
-3. 서버 속성 창에서 **보안** 메뉴를 선택합니다.
-4. **서버 인증** 방식을 "SQL Server 및 Windows 인증 모드"로 변경합니다.
+1.右击对象。
+2.在菜单中选择**属性**。
+3.在服务器属性窗口中选择**安全**菜单。
+4.将**服务器验证**方式更改为“SQL Server及Windows验证模式”。
 
-※ SQL 인증모드 설정후 적용을 위해 MS-SQL 서비스를 재시작해야 됩니다. 
+※ 设置SQL验证模式后，为进行应用，应重启MS-SQL服务。 
 
-### 2. MS-SQL 서비스 포트 변경
+### 2.更改MS-SQL服务端口
 
-MS-SQL의 기본 서비스 포트 1433은 널리 알려진 포트로 보안 취약점이 될 수 있습니다.
-다른 포트로 변경하는것을 추천합니다.
-※ Express 의 경우 기본포트 지정이 안되어 있습니다. 
+MS-SQL的默认服务端口1433是广为人知的端口，所以有可能成为安全漏洞。
+建议更改为其他端口。
+※ Express的情况无法指定默认端口。 
 
-SQL Server 구성관리자를 실행합니다.
+运行SQL Server配置管理器。
 
-![mssqlinstance_04_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_04_201812_en.png)
+![mssqlinstance_04_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_04_201812.png)
 
-1. 좌측 패널에서 **SQL Server 네트워크 구성**의 하위 항목 **MSSQLSERVER에 대한 프로토콜**을 선택합니다.
-2. 프로토콜 이름 중 **TCP/IP**를 우 클릭합니다.
-3. 메뉴에서 **속성**을 선택합니다.
-4. **IP 주소** 탭을 클릭합니다.
-5. 드랍다운 메뉴 중 **IP ALL**을 선택한 후 다른 포트 번호로 변경합니다.
+1.在左侧面板中选择**SQL Server网络配置**的下级项目**MSSQLSERVER相关协议**。
+2.右击协议名中的**TCP/IP**。
+3.在菜单中选择**属性**。
+4.单击**IP地址**标签。
+5.在下拉菜单中选择**IP ALL**后，更改为其他端口号。
 
-※ MS-SQL 서비스 포트 변경후 적용을 위해 MS-SQL 서비스를 재시작해야 됩니다. 
+※ 更改MS-SQL服务端口后，为进行应用，应重启MS-SQL服务。 
 
-### 3. 외부에서 MS-SQL Database 접속허용 설정
+### 3.设置允许从外部连接MS-SQL数据库
 
-외부에서 MS-SQL Database에 접속하기 위해서 **Network > VPC** 의 **Security Group**탭에서 MS-SQL 서비스 포트를 Security Rule로 추가해야 합니다. 
-Security Rule 추가시 접속을 허용할 MS-SQL 서비스 포트 (기본포트 : 1433) 및 원격 IP를 등록합니다. 
+为从外部连接MS-SQL数据库，应在**Network > Security Group**中将MS-SQL服务端口添加到Security Group。 
+添加Security Group时，注册允许连接的MS-SQL服务端口（默认端口：1433）及远程IP。 
 
-## 데이터 볼륨 할당
+## 分配数据卷
 
-MS-SQL의 데이터/로그 파일(MDF/LDF), 백업 파일은 별도의 Block Storage 사용을 권장합니다. 
+MS-SQL的数据/日志文件（MDF/LDF）、备份文件建议使用另外的Block Storage。
+若欲创建Block Storage，在**Compute > Instance > Block Storage**标签中单击+创建Block Storage按钮。
 
-![mssqlinstance_05_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_05_201812_en.png)
+![mssqlinstance_05_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_05_201812.png)
 
-**Compute > Instance > Block Storage** 탭으로 이동하여 Block Storage를 생성합니다.
-Block Storage 생성시 Volume 타입은 성능을 위해 "범용 SSD"를 추천합니다.
+创建Block Storage时，为保证性能，Volume类型推荐“通用SSD”。
 
-![mssqlinstance_06_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_06_201812_en.png)
+![mssqlinstance_06_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_06_201812.png)
 
-Block Storage 생성 완료 후 Storage 선택 후 **연결 관리** 버튼을 클릭하여 인스턴스에 연결합니다.
-
-<br/>
-
-RDP로 인스턴스에 접속하여 **컴퓨터 관리**를 실행하여 **저장소 > 디스크 관리**로 이동합니다.
-
-![mssqlinstance_07_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_07_201812_en.png)
-
-연결 된 Block Storage가 탐지된것을 확인할 수 있습니다. 사용하기 위해서는 먼저 디스크 초기화를 실행해야합니다.
-1. **디스크 1** 블럭을 우 클릭한 후 **디스크 초기화**를 클릭합니다.
-2. 파티션 형식 선택 후 **확인** 버튼을 클릭합니다.
+完成创建Block Storage并选择Storage后，单击**连接管理**按钮，连接到实例。
 
 <br/>
 
-초기화 완료 후 디스크 볼륨을 생성합니다.
+使用RDP连接到实例，执行**计算机管理**，跳转至**存储位置>磁盘管理**。
 
-![mssqlinstance_08_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_08_201812_en.png)
+![mssqlinstance_07_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_07_201812.png)
 
-할당되지 않은 디스크를 우 클릭 후 **새 단순 볼륨**을 클릭하여 새 단순 볼륨 마법사를 진행합니다.
+可以确认是否检测到已连接的Block Storage。为进行使用，应先对磁盘执行初始化。
+1.右击**磁盘1**块后，单击**初始化磁盘**。
+2.选择分区格式后，单击**确定**按钮。
 
 <br/>
 
-Microsoft SQL Server Management Studio 서버 속성의 데이터베이스 설정에서 데이터베이스 기본 위치를 생성한 볼륨의 디렉토리로 변경합니다.
+初始化完成后，创建磁盘卷。
 
-![mssqlinstance_09_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_09_201812_en.png)
+![mssqlinstance_08_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_08_201812.png)
 
-※ MS-SQL 데이터베이스 기본 위치 변경후 적용을 위해 MS-SQL 서비스를 재시작해야 됩니다. 
+右击未分配的磁盘后，单击**新建简单卷**，运行新建简单卷程序。
 
-## MS-SQL 서비스 재시작
-MS-SQL의 설정 변경시 MS-SQL 서비스의 재시작이 필요한 경우가 있습니다.
-변경 설정을 적용하기위해 MS-SQL 서비스를 재시작 합니다. 
+<br/>
 
-SQL Server 구성관리자의 **SQL Server 구성관리자(로컬) > SQL Server 서비스 > SQL Server(MSSQLSERVER)** 를 선택후 우클릭후 노출되는 메뉴에서 "다시 시작"으로 MS-SQL 서비스를 재시작합니다.
+在Microsoft SQL Server Management Studio服务器属性的数据库设置中，将数据库默认位置更改为创建的卷的目录。
 
-![mssqlinstance_10_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_10_201812_en.png)
+![mssqlinstance_09_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_09_201812.png)
 
-## MS-SQL 서비스 자동 실행 확인/설정
-MS-SQL의 서비스가 OS 구동시 자동으로 시작하도록 설정되어 있는지 확인합니다. 
+※ 更改MS-SQL数据库默认位置后，为进行应用，应重启MS-SQL服务。 
 
-SQL Server 구성관리자의  SQL Server 구성관리자(로컬) > SQL Server 서비스 에서 "시작모드"를 확인할 수 있습니다. 
+## 重启MS-SQL服务
+更改MS-SQL设置时，有时需要重启MS-SQL服务。
+为应用更改的设置，重启MS-SQL服务。 
 
-![mssqlinstance_11_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_11_201812_en.png)
+选择SQL Server配置管理器的**SQL Server配置管理器（本地）>SQL Server服务>SQL Server（MSSQLSERVER）**后，右击，在显示的菜单中选择“重启”重启MS-SQL服务。
 
-**SQL SERVER (MSSSQLSERVER)** 및 **SQL Server 에이전트 (MSSQLSERVER)** 등의 서비스 시작모드가 **자동**이 아닐 경우:
-1. 해당 서비스를 우 클릭한 후 **속성**을 선택합니다.
-2. **서비스**탭에서 **General > 시작모드**를 **자동**으로 변경합니다.
+![mssqlinstance_10_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_10_201812.png)
 
-> [참고]
-> MS-SQL Instance의 릴리스 현황은 [인스턴스 릴리스 노트](/Compute/Compute/ko/release-notes/) 를 참고하시기 바랍니다.
+## 确认/设置自动执行MS-SQL服务
+确认MS-SQL的服务是否设置为OS驱动时自动启动。 
+
+在SQL Server配置管理器的SQL Server配置管理器（本地）>SQL Server服务中可确认“启动模式”。 
+
+![mssqlinstance_11_201812](https://static.toastoven.net/prod_ms_sql/mssqlinstance_11_201812.png)
+
+**SQL SERVER (MSSSQLSERVER)**及**SQL Server代理程序（MSSQLSERVER）**等的服务启动模式不是**自动**时：
+1.右击相应服务后，选择**属性**。
+2.在**服务**标签中将**General>启动模式**更改为**自动**。
+
+> 【参考】
+> MS-SQL Instance的发布现状请参考【实例发布说明】(/Compute/Compute/ko/release-notes/)。
