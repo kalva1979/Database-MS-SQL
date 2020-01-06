@@ -1,5 +1,8 @@
 ## Database > MS-SQL Instance > 사용 가이드
 
+## 동영상 가이드
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bLxLWcaByyw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## MS-SQL Intance 생성
 
 MS-SQL를 사용하기 위해서 먼저 인스턴스를 생성해야합니다.
